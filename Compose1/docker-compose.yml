@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - net1
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db1
+    volumes:
+      # this is for the volume
+      - db_data:/var/lib/mysql  
+      # this is used for the bind mount
+      # - ./db_data:/var/lib/mysql
+    networks:
+      - net1
+
+
+
+# this we will use when we want to use the volume 
+volumes:
+  db_data:
+
+networks:
+  net1:
+    driver: bridge

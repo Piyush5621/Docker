@@ -1,0 +1,22 @@
+# Ignore MySQL / database files
+Compose1/db_data/
+*.sock
+*.cnf
+*.index
+
+# Ignore node_modules
+node_modules/
+*/node_modules/
+DOCKER_NODE/node_modules/
+
+# Ignore Docker data files
+*.vhdx
+DockerDesktopWSL/
+
+# Ignore package-lock files
+package-lock.json
+*/package-lock.json
+
+# Ignore IDE files
+.vscode/
+.idea/
